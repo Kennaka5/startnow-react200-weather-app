@@ -5,7 +5,8 @@ import SearchBar from './SearchBar';
 
 function mapStoreToProps(store) {
     return {
-      city: store.search.selectedCity
+      city: store.search.selectedCity,
+      cityInput: store.search.cityInput
     };
   }
 

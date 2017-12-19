@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './components/Searchbar';
 import WeatherData from './components/WeatherData';
+import WeatherHistory from './components/WeatherHistory';
 
 
 export default class App extends React.Component {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
         <WeatherData />
             <div className='col-12 col-md-6 mb-4'>
               <div className='card-header'>Search History</div>
+              <WeatherHistory />
             </div>
           </div>
           <div className='row justify-content-center'>

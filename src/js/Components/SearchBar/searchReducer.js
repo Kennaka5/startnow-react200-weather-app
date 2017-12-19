@@ -1,19 +1,18 @@
-import {
-  types
-} from './searchActions';
-
+import { types } from './searchActions';
 
 const defaultState = {
   city: '',
   lon: '',
   lat: '',
-  tempature: '',
+  temperature: '',
   lowTemp: '',
   pressure: '',
   humidity: '',
   highTemp: '',
   windspeed: '',
-  preSelectedCity: false
+  historyListItem: [],
+  preSelectedCity: false,
+  cityInput: ''
 };
 
 export default function SearchReducer(state = defaultState, action) {
@@ -22,7 +21,6 @@ export default function SearchReducer(state = defaultState, action) {
   // for defining a default value on a parameter
   switch (type) {
     case types.CITY_TO_SEARCH:
-      {
         // we'll return an object
         return {
           // with all the previous state
@@ -30,21 +28,51 @@ export default function SearchReducer(state = defaultState, action) {
           // but overwriting the description
           city: payload.selectedCity
         }
-      }
-      switch (type) {
-    case types.WEATHER_INFO:
-       }
+    case types.CITY_INPUT_TO_SEARCH:
+        // we'll return an object
+        return {
+          // with all the previous state
+          ...state,
+          // but overwriting the description
+          cityInput: payload.cityInput
+        }
+
+    
+    case `${types.WEATHER_INFO}_PENDING`:
+        console.log('pending');
+        return {
+          ...state
+        }
+
+    case `${types.WEATHER_INFO}_FULFILLED`:
+    //console log here to debug
+        const { historyListItem } = state;
+        var date = new Date();
+        var history = {
+          city: payload.name,
+          date: date.toLocaleDateString(), 
+          time: date.toLocaleTimeString()
+        };
+        if (historyListItem) {
+          const newHistory = history;
+          history = state.historyListItem.slice();
+          history.push(newHistory);
+        }
+
+
+
       return {
-        ...state,
-        city: payload.data.name,
-        lat: payload.data.coord.lat,
-        lon: payload.data.coord.lon,
-        temp: payload.data.main.temp + 'F',
-        pressure: payload.data.main.humidity,
-        humidity: payload.data.main.humidity + '%',
-        lowTemp: payload.data.main.temp_min + 'F',
-        highTemp: payload.data.main.temp_max + 'F',
-        wind: payload.data.wind.speed + 'mph',        
+          ...state, 
+          city: payload.name,
+          lat: payload.coord.lat,
+          lon: payload.coord.lon,
+          temperature: payload.main.temp + 'F',
+          pressure: payload.main.pressure,
+          humidity: payload.main.humidity + '%',
+          lowTemp: payload.main.temp_min + 'F',
+          highTemp: payload.main.temp_max + 'F',
+          windspeed: payload.wind.speed + 'mph',
+          historyListItem: history,
       }
   default: {
     return state;
