@@ -11,23 +11,25 @@ render() {
         <div className='card-header'>City Information</div>
         <div className="card-block">
           <h4 className="card-title text-center">{city}</h4>
-          <small className= "card-title text-center">{lon} {lat}</small>
+          <p className= 'card-text text-center'>
+          <small> {`Lat: ${lat}, Lon: ${lon}`}</small>
+          </p>
           <div className= 'row text-center mx-auto pt-4'>
           <div className="card col-sm-3 mx-auto">
               <div className="card-block">
-                <h5 className="card-title">Temperature</h5>
+                <h6 className="card-title pt-2">Temperature</h6>
                 <p className="card-text">{temperature}</p>
               </div>
               </div>
               <div className="card col-sm-3 mx-auto">
               <div className="card-block">
-                <h5 className="card-title">Pressure</h5>
+                <h6 className="card-title pt-2">Pressure</h6>
                 <p className="card-text">{pressure}</p>
               </div>
               </div>
               <div className="card col-sm-3 mx-auto">
               <div className="card-block">
-                <h5 className="card-title">Humidity</h5>
+                <h6 className="card-title pt-2">Humidity</h6>
                 <p className="card-text">{humidity}</p>
               </div>
               </div>
@@ -35,19 +37,19 @@ render() {
               <div className= 'row text-center mx-auto pt-4'>
           <div className="card col-sm-3 mx-auto">
               <div className="card-block">
-                <h5 className="card-title">Lowest Temp (F)</h5>
+                <h6 className="card-title pt-2">Lowest Temp (F)</h6>
                 <p className="card-text">{lowTemp}</p>
               </div>
               </div>
               <div className="card col-sm-3 mx-auto">
               <div className="card-block">
-                <h5 className="card-title">Highest Temp (F)</h5>
+                <h6 className="card-title pt-2">Highest Temp (F)</h6>
                 <p className="card-text">{highTemp}</p>
               </div>
               </div>
               <div className="card col-sm-3 mx-auto">
               <div className="card-block">
-                <h5 className="card-title">Wind Speed</h5>
+                <h6 className="card-title pt-2">Wind Speed</h6>
                 <p className="card-text">{windspeed}</p>
               </div>
               </div>
