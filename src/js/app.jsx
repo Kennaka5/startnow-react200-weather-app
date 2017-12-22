@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchBar from './components/SearchBar';
-import WeatherData from './components/WeatherData';
-import WeatherHistory from './components/WeatherHistory';
+import SearchBar from './Components/SearchBar';
+import WeatherData from './Components/WeatherData';
+import WeatherHistory from './Components/WeatherHistory';
 
 
 export default class App extends React.Component {
