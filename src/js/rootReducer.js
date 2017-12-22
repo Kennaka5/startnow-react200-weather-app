@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import searchReducer from './components/SearchBar/searchReducer';
-import weatherReducer from './components/WeatherData/weatherReducer';
+import searchReducer from './Components/SearchBar/searchReducer';
+import weatherReducer from './Components/WeatherData/weatherReducer';
 
 const rootReducer = combineReducers({
 // add reducers
